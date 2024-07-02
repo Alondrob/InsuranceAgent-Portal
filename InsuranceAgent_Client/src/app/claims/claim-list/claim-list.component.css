@@ -1,0 +1,44 @@
+.table-wrapper {
+    max-height: 400px;
+    /* Adjust the height as needed */
+    overflow-y: auto;
+    border: 1px solid #ddd;
+}
+
+.claims-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.claims-table thead {
+    background-color: #f1f1f1;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.claims-table th,
+.claims-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    vertical-align: middle;
+    /* Ensure vertical alignment for text and icons */
+}
+
+.claims-table th {
+    font-weight: bold;
+    font-size: 16px;
+    position: relative;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.filter-icon {
+    cursor: pointer;
+    font-size: 18px;
+}

@@ -1,0 +1,67 @@
+<div class="claimsList-main-container">
+    <div class="charts-container">
+    </div>
+    <div class="claims-table">
+        <div class="table-wrapper">
+            <table class="claims-table">
+                <thead>
+                    <tr>
+                        <th>
+                            <div class="header-content">
+                                Claim ID <mat-icon class="filter-icon"
+                                    (click)="openFilterDialog('id')">filter_alt</mat-icon>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="header-content">
+                                Policy Number <mat-icon class="filter-icon"
+                                    (click)="openFilterDialog('policyNumber')">filter_alt</mat-icon>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="header-content">
+                                Date of Loss <mat-icon class="filter-icon"
+                                    (click)="openFilterDialog('dateofLoss')">filter_alt</mat-icon>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="header-content">
+                                Cause of Loss <mat-icon class="filter-icon"
+                                    (click)="openFilterDialog('causeOfLoss')">filter_alt</mat-icon>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="header-content">
+                                Claim Amount <mat-icon class="filter-icon"
+                                    (click)="openFilterDialog('claimAmount')">filter_alt</mat-icon>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="header-content">
+                                Status <mat-icon class="filter-icon"
+                                    (click)="openFilterDialog('status')">filter_alt</mat-icon>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="header-content">
+                                Claim Type <mat-icon class="filter-icon"
+                                    (click)="openFilterDialog('claimType')">filter_alt</mat-icon>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let claim of filteredClaims">
+                        <td>{{ claim.id }}</td>
+                        <td>{{ claim.policyNumber }}</td>
+                        <td>{{ claim.dateofLoss | date }}</td>
+                        <td>{{ claim.causeOfLoss }}</td>
+                        <td>{{ claim.claimAmount | currency }}</td>
+                        <td>{{ claim.status }}</td>
+                        <td>{{ claim.claimType }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
