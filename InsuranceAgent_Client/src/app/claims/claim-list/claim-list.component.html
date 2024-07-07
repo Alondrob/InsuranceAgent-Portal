@@ -1,136 +1,60 @@
-<!-- <div class="claimsList-main-container">  
-    <div class="charts-container">
-    </div>
-    <div class="claims-table">
-        <div class="table-wrapper">
-            <table class="claims-table">
-                <thead>
-                    <tr>
-                        <th>
-                            <div class="header-content">
-                                Claim ID <mat-icon class="filter-icon"
-                                    (click)="openFilterDialog('id')">filter_alt</mat-icon>
-                            </div>
-                        </th>
-                        <th>
-                            <div class="header-content">
-                                Policy Number <mat-icon class="filter-icon"
-                                    (click)="openFilterDialog('policyNumber')">filter_alt</mat-icon>
-                            </div>
-                        </th>
-                        <th>
-                            <div class="header-content">
-                                Date of Loss <mat-icon class="filter-icon"
-                                    (click)="openFilterDialog('dateofLoss')">filter_alt</mat-icon>
-                            </div>
-                        </th>
-                        <th>
-                            <div class="header-content">
-                                Cause of Loss <mat-icon class="filter-icon"
-                                    (click)="openFilterDialog('causeOfLoss')">filter_alt</mat-icon>
-                            </div>
-                        </th>
-                        <th>
-                            <div class="header-content">
-                                Claim Amount <mat-icon class="filter-icon"
-                                    (click)="openFilterDialog('claimAmount')">filter_alt</mat-icon>
-                            </div>
-                        </th>
-                        <th>
-                            <div class="header-content">
-                                Status <mat-icon class="filter-icon"
-                                    (click)="openFilterDialog('status')">filter_alt</mat-icon>
-                            </div>
-                        </th>
-                        <th>
-                            <div class="header-content">
-                                Claim Type <mat-icon class="filter-icon"
-                                    (click)="openFilterDialog('claimType')">filter_alt</mat-icon>
-                            </div>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let claim of filteredClaims">
-                        <td>{{ claim.id }}</td>
-                        <td>{{ claim.policyNumber }}</td>
-                        <td>{{ claim.dateofLoss | date }}</td>
-                        <td>{{ claim.causeOfLoss }}</td>
-                        <td>{{ claim.claimAmount | currency }}</td>
-                        <td>{{ claim.status }}</td>
-                        <td>{{ claim.claimType }}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div> -->
-
-
 <div class="claimsList-main-container">
-    <div class="charts-container">
-    </div>
+    <div class="charts-container"></div>
     <div class="claims-table">
         <div class="table-wrapper">
-            <table class="claims-table">
-                <thead>
+            <p-table #dt [value]="filteredClaims" dataKey="id" [rows]="10" [rowsPerPageOptions]="[10, 25, 50]"
+                [loading]="loading" [paginator]="true"
+                [globalFilterFields]="['policyNumber', 'causeOfLoss', 'status', 'claimType']">
+                <ng-template pTemplate="caption">
+                    <div class="table-caption">
+                        <p-button label="Clear" [outlined]="true" icon="pi pi-filter-slash" (click)="clear(dt)" />
+                        <span class="p-input-icon-left ml-auto">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" [(ngModel)]="searchValue"
+                                (input)="dt.filterGlobal($any($event.target).value, 'contains')"
+                                placeholder="Search keyword" />
+                        </span>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
                     <tr>
-                        <th>
-                            <div class="header-content">
-                                Claim ID <mat-icon class="filter-icon"
-                                    (click)="openFilterDialog('id', $event, 1)">filter_alt</mat-icon>
-                            </div>
+                        <th pSortableColumn="policyNumber" style="width: 20%;">
+                            Policy Number
+                            <p-sortIcon field="policyNumber"></p-sortIcon>
                         </th>
-                        <th>
-                            <div class="header-content">
-                                Policy Number <mat-icon class="filter-icon"
-                                    (click)="openFilterDialog('policyNumber', $event, 2)">filter_alt</mat-icon>
-                            </div>
+                        <th pSortableColumn="causeOfLoss" style="width: 20%;">
+                            Cause of Loss
+                            <p-sortIcon field="causeOfLoss"></p-sortIcon>
                         </th>
-                        <th>
-                            <div class="header-content">
-                                Date of Loss <mat-icon class="filter-icon"
-                                    (click)="openFilterDialog('dateofLoss', $event, 3)">filter_alt</mat-icon>
-                            </div>
+                        <th pSortableColumn="dateofLoss" style="width: 20%;">
+                            Date of Loss
+                            <p-sortIcon field="dateofLoss"></p-sortIcon>
                         </th>
-                        <th>
-                            <div class="header-content">
-                                Cause of Loss <mat-icon class="filter-icon"
-                                    (click)="openFilterDialog('causeOfLoss', $event, 4)">filter_alt</mat-icon>
-                            </div>
+                        <th pSortableColumn="claimAmount" style="width: 20%;">
+                            Claim Amount
+                            <p-sortIcon field="claimAmount"></p-sortIcon>
                         </th>
-                        <th>
-                            <div class="header-content">
-                                Claim Amount <mat-icon class="filter-icon"
-                                    (click)="openFilterDialog('claimAmount', $event, 5)">filter_alt</mat-icon>
-                            </div>
-                        </th>
-                        <th>
-                            <div class="header-content">
-                                Status <mat-icon class="filter-icon"
-                                    (click)="openFilterDialog('status', $event, 6)">filter_alt</mat-icon>
-                            </div>
-                        </th>
-                        <th>
-                            <div class="header-content">
-                                Claim Type <mat-icon class="filter-icon"
-                                    (click)="openFilterDialog('claimType', $event, 7)">filter_alt</mat-icon>
-                            </div>
+                        <th pSortableColumn="status" style="width: 20%;">
+                            Status
+                            <p-sortIcon field="status"></p-sortIcon>
                         </th>
                     </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let claim of filteredClaims">
-                        <td>{{ claim.id }}</td>
+                </ng-template>
+                <ng-template pTemplate="body" let-claim>
+                    <tr>
                         <td>{{ claim.policyNumber }}</td>
-                        <td>{{ claim.dateofLoss | date }}</td>
                         <td>{{ claim.causeOfLoss }}</td>
-                        <td>{{ claim.claimAmount | currency }}</td>
-                        <td>{{ claim.status }}</td>
-                        <td>{{ claim.claimType }}</td>
+                        <td>{{ claim.dateofLoss | date: 'MM/dd/yyyy' }}</td>
+                        <td>{{ claim.claimAmount | currency: 'USD':'symbol' }}</td>
+                        <td><p-tag [value]="claim.status" [severity]="getSeverity(claim.status)" /></td>
                     </tr>
-                </tbody>
-            </table>
+                </ng-template>
+                <ng-template pTemplate="emptymessage">
+                    <tr>
+                        <td colspan="5">No claims found.</td>
+                    </tr>
+                </ng-template>
+            </p-table>
         </div>
     </div>
 </div>
