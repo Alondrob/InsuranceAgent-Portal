@@ -6,4 +6,5 @@ export interface Claim {
   claimAmount: number;
   status: string;
   claimType: string;
+  customerName: string;
 }

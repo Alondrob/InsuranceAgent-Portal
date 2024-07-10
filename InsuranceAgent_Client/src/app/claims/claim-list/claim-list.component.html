@@ -1,60 +1,6 @@
 <div class="claimsList-main-container">
     <div class="charts-container"></div>
     <div class="claims-table">
-        <div class="table-wrapper">
-            <p-table #dt [value]="filteredClaims" dataKey="id" [rows]="10" [rowsPerPageOptions]="[10, 25, 50]"
-                [loading]="loading" [paginator]="true"
-                [globalFilterFields]="['policyNumber', 'causeOfLoss', 'status', 'claimType']">
-                <ng-template pTemplate="caption">
-                    <div class="table-caption">
-                        <p-button label="Clear" [outlined]="true" icon="pi pi-filter-slash" (click)="clear(dt)" />
-                        <span class="p-input-icon-left ml-auto">
-                            <i class="pi pi-search"></i>
-                            <input pInputText type="text" [(ngModel)]="searchValue"
-                                (input)="dt.filterGlobal($any($event.target).value, 'contains')"
-                                placeholder="Search keyword" />
-                        </span>
-                    </div>
-                </ng-template>
-                <ng-template pTemplate="header">
-                    <tr>
-                        <th pSortableColumn="policyNumber" style="width: 20%;">
-                            Policy Number
-                            <p-sortIcon field="policyNumber"></p-sortIcon>
-                        </th>
-                        <th pSortableColumn="causeOfLoss" style="width: 20%;">
-                            Cause of Loss
-                            <p-sortIcon field="causeOfLoss"></p-sortIcon>
-                        </th>
-                        <th pSortableColumn="dateofLoss" style="width: 20%;">
-                            Date of Loss
-                            <p-sortIcon field="dateofLoss"></p-sortIcon>
-                        </th>
-                        <th pSortableColumn="claimAmount" style="width: 20%;">
-                            Claim Amount
-                            <p-sortIcon field="claimAmount"></p-sortIcon>
-                        </th>
-                        <th pSortableColumn="status" style="width: 20%;">
-                            Status
-                            <p-sortIcon field="status"></p-sortIcon>
-                        </th>
-                    </tr>
-                </ng-template>
-                <ng-template pTemplate="body" let-claim>
-                    <tr>
-                        <td>{{ claim.policyNumber }}</td>
-                        <td>{{ claim.causeOfLoss }}</td>
-                        <td>{{ claim.dateofLoss | date: 'MM/dd/yyyy' }}</td>
-                        <td>{{ claim.claimAmount | currency: 'USD':'symbol' }}</td>
-                        <td><p-tag [value]="claim.status" [severity]="getSeverity(claim.status)" /></td>
-                    </tr>
-                </ng-template>
-                <ng-template pTemplate="emptymessage">
-                    <tr>
-                        <td colspan="5">No claims found.</td>
-                    </tr>
-                </ng-template>
-            </p-table>
-        </div>
+        <app-custom-table [claims]="claims"></app-custom-table>
     </div>
 </div>
