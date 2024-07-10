@@ -1,26 +1,22 @@
 .table-wrapper {
-    max-width: 100%;
-    overflow-x: auto;
-    border: 1px solid #ddd;
-    margin-bottom: 20px;
+    /* margin: 0 auto; */
+    /* Center the table wrapper */
+    /* width: 90%; */
+    /* Adjust to make the table responsive */
+    /* max-width: 90%; */
+    /* Set a maximum width to prevent it from growing too large */
 }
 
-table {
+.table-wrapper table {
     width: 100%;
     border-collapse: collapse;
 }
 
-thead th {
-    background-color: #f1f1f1;
-    border-bottom: 1px solid #ddd;
-    padding: 10px;
-}
-
-th,
-td {
+.table-wrapper th,
+.table-wrapper td {
+    border: 1px solid #ccc;
     padding: 8px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
+    text-align: center;
 }
 
 .header-content {
@@ -28,25 +24,19 @@ td {
     align-items: center;
     justify-content: space-between;
     white-space: nowrap;
-    /* Prevent text from wrapping */
+    font-size: 0.8rem;
 }
 
-.header-content span {
-    display: flex;
-    align-items: center;
-}
-
-.header-content .sort-icon,
-.header-content .filter-icon {
-    cursor: pointer;
+.sort-icon,
+.filter-icon {
     margin-left: 5px;
+    cursor: pointer;
+    font-size: 1rem;
 }
 
-.icon {
-    width: 24px;
-    /* Increase the size of the icons */
-    height: 24px;
-    /* Increase the size of the icons */
+.sort-icon mat-icon,
+.filter-icon ng-icon {
+    font-size: 1.2rem;
 }
 
 .pagination-controls {
@@ -57,17 +47,46 @@ td {
 
 .pagination-icon {
     cursor: pointer;
-    margin: 0 10px;
+    margin-left: 10px;
 }
 
-mat-icon {
-    font-size: 24px;
-    /* Increase the size of the Material icons */
+.header-content span {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
 }
 
-.ng-icon {
-    width: 24px;
-    /* Increase the size of the custom icons */
-    height: 24px;
-    /* Increase the size of the custom icons */
+.header-content label {
+    margin-right: 5px;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1200px) {
+    .table-wrapper {
+        width: 95%;
+    }
+
+    .header-content {
+        font-size: 0.7rem;
+    }
+
+    .sort-icon mat-icon,
+    .filter-icon ng-icon {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .table-wrapper {
+        width: 100%;
+    }
+
+    .header-content {
+        font-size: 0.6rem;
+    }
+
+    .sort-icon mat-icon,
+    .filter-icon ng-icon {
+        font-size: 0.8rem;
+    }
 }

@@ -289,7 +289,7 @@ export const CLAIM_MOCK_DATA: Claim[] = [
     claimAmount: 800.0,
     status: 'Pending',
     claimType: 'Auto',
-    customerName: ''
+    customerName: 'Peter Crouch'
   },
   {
     id: 30,

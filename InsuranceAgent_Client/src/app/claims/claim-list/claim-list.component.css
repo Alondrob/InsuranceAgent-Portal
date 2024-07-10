@@ -2,7 +2,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 20px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 .charts-container {
@@ -12,4 +13,6 @@
 
 .claims-table {
     width: 100%;
+    display: flex;
+    justify-content: center;
 }

@@ -1,14 +1,15 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { Claim } from '../../claims/claim.model';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import { tdesignFilter } from '@ng-icons/tdesign-icons'
+import { tdesignFilter } from '@ng-icons/tdesign-icons';
+import { FilterModalComponent } from '../components/filter-modal/filter-modal.component';
 
 @Component({
   selector: 'app-custom-table',
   standalone: true,
-  imports: [CommonModule, MatIconModule, NgIconComponent],
+  imports: [CommonModule, MatIconModule, NgIconComponent, FilterModalComponent],
   viewProviders: [provideIcons({ tdesignFilter})],
   templateUrl: './custom-table.component.html',
   styleUrls: ['./custom-table.component.css']
@@ -21,7 +22,11 @@ export class CustomTableComponent implements OnInit {
   searchValue: string = '';
   sortField: keyof Claim | null = null;
   sortDirection: 'asc' | 'desc' = 'asc';
-  
+  isFilterModalOpen: boolean = false;
+  filterField: string = '';
+
+  @ViewChild(FilterModalComponent) filterModal!: FilterModalComponent;
+
   ngOnInit(): void {
     this.filterClaims();
   }
@@ -58,7 +63,12 @@ export class CustomTableComponent implements OnInit {
   }
 
   toggleFilter(field: keyof Claim): void {
-    // Implement filter toggle logic here
+    this.filterField = field;
+    this.isFilterModalOpen = true;
+  }
+
+  closeFilterModal(): void {
+    this.isFilterModalOpen = false;
   }
 
   previousPage(): void {

@@ -1,0 +1,7 @@
+<app-base-modal [isOpen]="isOpen" [title]="'Filter Claims'" (closeModal)="close()">
+    <div>
+        <label>{{ filterField }}</label>
+        <input type="text" [(ngModel)]="filterField">
+        <button (click)="applyFilters()">Apply</button>
+    </div>
+</app-base-modal>
