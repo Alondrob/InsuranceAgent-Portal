@@ -1,16 +1,17 @@
-.table-wrapper {
-    /* margin: 0 auto; */
-    /* Center the table wrapper */
-    /* width: 90%; */
-    /* Adjust to make the table responsive */
-    /* max-width: 90%; */
-    /* Set a maximum width to prevent it from growing too large */
+
+.table {
+    width: 90%;
+        border-collapse: collapse; /* Ensure borders collapse into a single border */
+        background-color: aliceblue;
+        margin-left: auto;
+        margin-right: auto;
+
 }
 
-.table-wrapper table {
+/* .table-wrapper table {
     width: 100%;
     border-collapse: collapse;
-}
+} */
 
 .table-wrapper th,
 .table-wrapper td {
@@ -60,7 +61,7 @@
     margin-right: 5px;
 }
 
-/* Media queries for responsiveness */
+/* Media queries for responsiveness
 @media (max-width: 1200px) {
     .table-wrapper {
         width: 95%;
@@ -88,5 +89,4 @@
     .sort-icon mat-icon,
     .filter-icon ng-icon {
         font-size: 0.8rem;
-    }
-}
+    } */

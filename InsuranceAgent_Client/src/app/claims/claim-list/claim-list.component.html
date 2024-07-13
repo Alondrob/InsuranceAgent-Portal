@@ -1,6 +1,15 @@
 <div class="claimsList-main-container">
-    <div class="charts-container"></div>
-    <div class="claims-table">
-        <app-custom-table [claims]="claims"></app-custom-table>
-    </div>
+  <div class="charts-container"></div>
+  <div class="claims-table">
+    <app-custom-table
+      [claims]="claims"
+      (filterFieldSelected)="openFilterModal($event)"
+    >
+    </app-custom-table>
+  </div>
+  <app-filter-modal 
+  [isOpen]="isFilterModalOpen" 
+  (closeModal)="closeFilterModal()"
+  [filterField]="filterField">
+  </app-filter-modal>
 </div>

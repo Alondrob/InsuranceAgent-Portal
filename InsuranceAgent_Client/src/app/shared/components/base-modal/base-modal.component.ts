@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -13,7 +13,21 @@ export class BaseModalComponent {
   @Input() title: string = '';
   @Output() closeModal = new EventEmitter<void>();
 
+   ngOnChanges(changes: SimpleChanges) {
+    if (changes['isOpen']) {
+      this.isOpen = changes['isOpen'].currentValue;
+            console.log('BaseModalComponent - isOpen changed:', this.isOpen);  // Log isOpen changes
+
+    }
+  }
+
+  // open() {
+  //   this.isOpen = true;
+  // }
+
   close() {
+    this.isOpen = false;
     this.closeModal.emit();
+    console.log("modal closed")
   }
 }

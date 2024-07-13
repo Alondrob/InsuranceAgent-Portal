@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit,EventEmitter, ChangeDetectorRef, output, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { Claim } from '../../claims/claim.model';
@@ -9,13 +9,16 @@ import { FilterModalComponent } from '../components/filter-modal/filter-modal.co
 @Component({
   selector: 'app-custom-table',
   standalone: true,
-  imports: [CommonModule, MatIconModule, NgIconComponent, FilterModalComponent],
+  imports: [CommonModule, MatIconModule, NgIconComponent],
   viewProviders: [provideIcons({ tdesignFilter})],
   templateUrl: './custom-table.component.html',
   styleUrls: ['./custom-table.component.css']
 })
 export class CustomTableComponent implements OnInit {
   @Input() claims: Claim[] = [];
+  @Output() filterFieldSelected = new EventEmitter<string>();
+
+
   filteredClaims: Claim[] = [];
   currentPage: number = 1;
   itemsPerPage: number = 10;
@@ -24,8 +27,9 @@ export class CustomTableComponent implements OnInit {
   sortDirection: 'asc' | 'desc' = 'asc';
   isFilterModalOpen: boolean = false;
   filterField: string = '';
+  
+  constructor(private cdr: ChangeDetectorRef) {}
 
-  @ViewChild(FilterModalComponent) filterModal!: FilterModalComponent;
 
   ngOnInit(): void {
     this.filterClaims();
@@ -63,13 +67,12 @@ export class CustomTableComponent implements OnInit {
   }
 
   toggleFilter(field: keyof Claim): void {
-    this.filterField = field;
-    this.isFilterModalOpen = true;
+    console.log("filter event",field)
+ this.filterFieldSelected.emit(field);
+    // console.log(this.isFilterModalOpen);
   }
 
-  closeFilterModal(): void {
-    this.isFilterModalOpen = false;
-  }
+  
 
   previousPage(): void {
     if (this.currentPage > 1) {
