@@ -1,17 +1,20 @@
 import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-base-modal',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatIconModule],
   templateUrl: './base-modal.component.html',
   styleUrls: ['./base-modal.component.css']
 })
 export class BaseModalComponent {
   @Input() isOpen: boolean = false;
   @Input() title: string = '';
+  @Input() modalStyles: { [key: string]: string } = {};
   @Output() closeModal = new EventEmitter<void>();
+
 
    ngOnChanges(changes: SimpleChanges) {
     if (changes['isOpen']) {
@@ -21,9 +24,7 @@ export class BaseModalComponent {
     }
   }
 
-  // open() {
-  //   this.isOpen = true;
-  // }
+
 
   close() {
     this.isOpen = false;

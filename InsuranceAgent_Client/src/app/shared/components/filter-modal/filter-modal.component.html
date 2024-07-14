@@ -1,15 +1,16 @@
-
-<!-- <app-base-modal [isOpen]="isOpen" [title]="'Filter Claims'" (closeModal)="close()">
-    <div>
-        <label>{{ filterField }}</label>
-        <input type="text" [(ngModel)]="filterField">
-        <button (click)="applyFilters()">Apply</button>
+<div *ngIf="isOpen" class="modal-overlay">
+    <div class="modal">
+        <div class="modal-header">
+            <button class="close-button" (click)="close()">X</button>
+        </div>
+        <div class="modal-content">
+            <div class="filter-modal-content">
+                <div *ngFor="let field of filterConfig[filterField]">
+                    <label>{{ field.label }}</label>
+                    <input [type]="field.type" [(ngModel)]="filterValues[field.key]">
+                </div>
+                <button (click)="applyFilters()">Apply</button>
+            </div>
+        </div>
     </div>
-</app-base-modal> -->
-<app-base-modal [isOpen]="isOpen" [title]="'Filter Claims'" (closeModal)="close()">
-    <div>
-        <label>{{ filterField }}</label>
-        <input type="text" [(ngModel)]="filterField">
-        <button (click)="applyFilters()">Apply</button>
-    </div>
-</app-base-modal>
+</div>

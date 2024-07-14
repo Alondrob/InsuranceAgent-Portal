@@ -12,7 +12,7 @@
 
 .modal {
     background: white;
-    padding: 20px;
+    /* padding: 20px; */
     border-radius: 5px;
     width: 300px;
 }
@@ -25,4 +25,10 @@
 
 .modal-content {
     margin-top: 10px;
+}
+
+.base-modal_close-icon {
+ position: sticky; top: 4px;
+ margin-right: 2%;
+ padding: 30px;
 }
