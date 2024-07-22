@@ -1,18 +1,38 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Claim } from './claim.model';
+import { Observable, of } from 'rxjs';
+import { CLAIM_MOCK_DATA } from '../claim-mock-data';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ClaimService {
-  private apiUrl = 'http://localhost:5034/api/claims';
+export class ClaimsService {
+  private claims = CLAIM_MOCK_DATA;
 
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
-  getClaims(): Observable<Claim[]> {
-    return this.http.get<Claim[]>(this.apiUrl);
+  getClaims(filterCriteria: any): Observable<any> {
+    let filteredClaims = this.claims;
+
+    if (filterCriteria.fromDate) {
+      const fromDate = new Date(filterCriteria.fromDate);
+      filteredClaims = filteredClaims.filter(claim => new Date(claim.date) >= fromDate);
+    }
+
+    if (filterCriteria.toDate) {
+      const toDate = new Date(filterCriteria.toDate);
+      filteredClaims = filteredClaims.filter(claim => new Date(claim.date) <= toDate);
+    }
+
+    const start = (filterCriteria.page - 1) * filterCriteria.pageSize;
+    const end = start + filterCriteria.pageSize;
+    const paginatedClaims = filteredClaims.slice(start, end);
+
+    return of({
+      claims: paginatedClaims,
+      total: filteredClaims.length,
+      page: filterCriteria.page,
+      pageSize: filterCriteria.pageSize
+    });
   }
 }
 

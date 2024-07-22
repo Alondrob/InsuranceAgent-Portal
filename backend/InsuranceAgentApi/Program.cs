@@ -8,6 +8,15 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();            // Adds support for controllers.
 builder.Services.AddEndpointsApiExplorer();   // Required for Swagger.
 builder.Services.AddSwaggerGen();             // Adds Swagger generation.
+builder.Services.AddAuthorization();
+
+// Uncomment the following lines if you want to use http.sys on Windows
+// #pragma warning disable CA1416 // Validate platform compatibility
+// builder.WebHost.UseHttpSys(options =>
+// {
+//     options.UrlPrefixes.Add("http://localhost:5000/insurance-agent");
+// });
+// #pragma warning restore CA1416 // Validate platform compatibility
 
 var app = builder.Build();
 
@@ -20,6 +29,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UsePathBase("/insurance-agent"); // Set the path base here
+
+app.UseRouting();
 
 app.UseAuthorization();
 

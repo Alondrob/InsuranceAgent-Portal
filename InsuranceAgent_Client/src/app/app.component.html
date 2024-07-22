@@ -7,3 +7,7 @@
     </div>
   </div>
 </div>
+
+<!-- Modals -->
+<app-login *ngIf="isLoginModalOpen" (close)="closeModals()"></app-login>
+<app-register *ngIf="isRegisterModalOpen" (close)="closeModals()"></app-register>

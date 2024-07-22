@@ -1,4 +1,16 @@
-
+.table-header {
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+    /* padding-right: 20px;
+    padding-bottom: 10px; */
+    padding-bottom: 5px;
+    width: 95.5%;
+    /* width: 90%; */
+    background-color: rgb(142, 140, 167);
+        margin-left: auto;
+        margin-right: auto;
+}
 .table {
     width: 90%;
         border-collapse: collapse; /* Ensure borders collapse into a single border */
@@ -8,10 +20,6 @@
 
 }
 
-/* .table-wrapper table {
-    width: 100%;
-    border-collapse: collapse;
-} */
 
 .table-wrapper th,
 .table-wrapper td {
@@ -61,32 +69,8 @@
     margin-right: 5px;
 }
 
-/* Media queries for responsiveness
-@media (max-width: 1200px) {
-    .table-wrapper {
-        width: 95%;
-    }
+.new-claim-button{
+    font-weight: 800;
+    cursor: pointer;
 
-    .header-content {
-        font-size: 0.7rem;
-    }
-
-    .sort-icon mat-icon,
-    .filter-icon ng-icon {
-        font-size: 1rem;
-    }
 }
-
-@media (max-width: 768px) {
-    .table-wrapper {
-        width: 100%;
-    }
-
-    .header-content {
-        font-size: 0.6rem;
-    }
-
-    .sort-icon mat-icon,
-    .filter-icon ng-icon {
-        font-size: 0.8rem;
-    } */

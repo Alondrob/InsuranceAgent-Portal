@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ClaimService } from '../claim.service';
+import { ClaimsService } from '../claim.service';
 import { Claim } from '../claim.model';
 
 @Component({
@@ -14,12 +14,12 @@ export class ClaimDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private claimService: ClaimService
+    private claimService: ClaimsService
   ) {}
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.claimService.getClaim(id).subscribe((claim) => {
+    this.claimService.getClaims(id).subscribe((claim) => {
       this.claim = claim;
     });
   }

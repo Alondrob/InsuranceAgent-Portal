@@ -1,4 +1,11 @@
-import { Component, Input, OnInit,EventEmitter, ChangeDetectorRef, output, Output } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  EventEmitter,
+  ChangeDetectorRef,
+  Output,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { Claim } from '../../claims/claim.model';
@@ -10,14 +17,14 @@ import { FilterModalComponent } from '../components/filter-modal/filter-modal.co
   selector: 'app-custom-table',
   standalone: true,
   imports: [CommonModule, MatIconModule, NgIconComponent],
-  viewProviders: [provideIcons({ tdesignFilter})],
+  viewProviders: [provideIcons({ tdesignFilter })],
   templateUrl: './custom-table.component.html',
-  styleUrls: ['./custom-table.component.css']
+  styleUrls: ['./custom-table.component.css'],
 })
 export class CustomTableComponent implements OnInit {
   @Input() claims: Claim[] = [];
   @Output() filterFieldSelected = new EventEmitter<string>();
-
+  @Output() createClaim = new EventEmitter<void>();
 
   filteredClaims: Claim[] = [];
   currentPage: number = 1;
@@ -27,9 +34,8 @@ export class CustomTableComponent implements OnInit {
   sortDirection: 'asc' | 'desc' = 'asc';
   isFilterModalOpen: boolean = false;
   filterField: string = '';
-  
-  constructor(private cdr: ChangeDetectorRef) {}
 
+  constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     this.filterClaims();
@@ -67,12 +73,14 @@ export class CustomTableComponent implements OnInit {
   }
 
   toggleFilter(field: keyof Claim): void {
-    console.log("filter event",field)
- this.filterFieldSelected.emit(field);
+    this.filterField = field;
+    this.filterFieldSelected.emit(field);
     // console.log(this.isFilterModalOpen);
   }
 
-  
+  openCreateClaimModal(): void {
+    this.createClaim.emit();
+  }
 
   previousPage(): void {
     if (this.currentPage > 1) {

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ClaimsManagementService")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+20b6a10fca1261ad2cae879170a829bfa73419c8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a14ff89be834aeec71fb9984e04626d63736415c")]
 [assembly: System.Reflection.AssemblyProductAttribute("ClaimsManagementService")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ClaimsManagementService")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

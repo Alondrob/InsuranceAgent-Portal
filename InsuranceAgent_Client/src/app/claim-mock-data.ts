@@ -9,7 +9,8 @@ export const CLAIM_MOCK_DATA: Claim[] = [
     claimAmount: 1200.0,
     status: 'Pending',
     claimType: 'Property',
-    customerName: 'John Doe'
+    customerName: 'John Doe',
+    date: ''
   },
   {
     id: 2,
@@ -19,7 +20,8 @@ export const CLAIM_MOCK_DATA: Claim[] = [
     claimAmount: 500.0,
     status: 'Approved',
     claimType: 'Auto',
-    customerName: 'Jane Smith'
+    customerName: 'Jane Smith',
+    date: ''
   },
   {
     id: 3,
@@ -29,7 +31,8 @@ export const CLAIM_MOCK_DATA: Claim[] = [
     claimAmount: 800.0,
     status: 'Denied',
     claimType: 'Property',
-    customerName: 'Alice Johnson'
+    customerName: 'Alice Johnson',
+    date: ''
   },
   {
     id: 4,
@@ -39,7 +42,8 @@ export const CLAIM_MOCK_DATA: Claim[] = [
     claimAmount: 700.0,
     status: 'Pending',
     claimType: 'Auto',
-    customerName: 'Robert Brown'
+    customerName: 'Robert Brown',
+    date: ''
   },
   {
     id: 5,
@@ -49,7 +53,8 @@ export const CLAIM_MOCK_DATA: Claim[] = [
     claimAmount: 900.0,
     status: 'Approved',
     claimType: 'Property',
-    customerName: 'Mary White'
+    customerName: 'Mary White',
+    date: ''
   },
   {
     id: 6,
@@ -59,7 +64,8 @@ export const CLAIM_MOCK_DATA: Claim[] = [
     claimAmount: 1100.0,
     status: 'Pending',
     claimType: 'Property',
-    customerName: 'James Green'
+    customerName: 'James Green',
+    date: ''
   },
   {
     id: 7,
@@ -69,7 +75,8 @@ export const CLAIM_MOCK_DATA: Claim[] = [
     claimAmount: 600.0,
     status: 'Approved',
     claimType: 'Auto',
-    customerName: 'Patricia Black'
+    customerName: 'Patricia Black',
+    date: ''
   },
   {
     id: 8,
@@ -79,7 +86,8 @@ export const CLAIM_MOCK_DATA: Claim[] = [
     claimAmount: 700.0,
     status: 'Denied',
     claimType: 'Property',
-    customerName: 'Christopher Gray'
+    customerName: 'Christopher Gray',
+    date: ''
   },
   {
     id: 9,
@@ -89,7 +97,8 @@ export const CLAIM_MOCK_DATA: Claim[] = [
     claimAmount: 800.0,
     status: 'Pending',
     claimType: 'Auto',
-    customerName: 'Linda Blue'
+    customerName: 'Linda Blue',
+    date: ''
   },
   {
     id: 10,
@@ -99,7 +108,8 @@ export const CLAIM_MOCK_DATA: Claim[] = [
     claimAmount: 900.0,
     status: 'Approved',
     claimType: 'Property',
-    customerName: 'David Brown'
+    customerName: 'David Brown',
+    date: ''
   },
   {
     id: 11,
@@ -109,7 +119,8 @@ export const CLAIM_MOCK_DATA: Claim[] = [
     claimAmount: 1200.0,
     status: 'Pending',
     claimType: 'Property',
-    customerName: 'Sarah Yellow'
+    customerName: 'Sarah Yellow',
+    date: ''
   },
   {
     id: 12,
@@ -119,7 +130,8 @@ export const CLAIM_MOCK_DATA: Claim[] = [
     claimAmount: 500.0,
     status: 'Approved',
     claimType: 'Auto',
-    customerName: 'Michael Red'
+    customerName: 'Michael Red',
+    date: ''
   },
   {
     id: 13,
@@ -129,7 +141,8 @@ export const CLAIM_MOCK_DATA: Claim[] = [
     claimAmount: 800.0,
     status: 'Denied',
     claimType: 'Property',
-    customerName: 'Laura White'
+    customerName: 'Laura White',
+    date: ''
   },
   {
     id: 14,
@@ -139,7 +152,8 @@ export const CLAIM_MOCK_DATA: Claim[] = [
     claimAmount: 700.0,
     status: 'Pending',
     claimType: 'Auto',
-    customerName: 'Anthony Orange'
+    customerName: 'Anthony Orange',
+    date: ''
   },
   {
     id: 15,
@@ -149,7 +163,8 @@ export const CLAIM_MOCK_DATA: Claim[] = [
     claimAmount: 900.0,
     status: 'Approved',
     claimType: 'Property',
-    customerName: 'Barbara Pink'
+    customerName: 'Barbara Pink',
+    date: ''
   },
   {
     id: 16,
@@ -159,7 +174,8 @@ export const CLAIM_MOCK_DATA: Claim[] = [
     claimAmount: 1100.0,
     status: 'Pending',
     claimType: 'Property',
-    customerName: 'Richard Purple'
+    customerName: 'Richard Purple',
+    date: ''
   },
   {
     id: 17,
@@ -169,7 +185,8 @@ export const CLAIM_MOCK_DATA: Claim[] = [
     claimAmount: 600.0,
     status: 'Approved',
     claimType: 'Auto',
-    customerName: 'Jessica Gold'
+    customerName: 'Jessica Gold',
+    date: ''
   },
   {
     id: 18,
@@ -179,7 +196,8 @@ export const CLAIM_MOCK_DATA: Claim[] = [
     claimAmount: 700.0,
     status: 'Denied',
     claimType: 'Property',
-    customerName: 'Mark Silver'
+    customerName: 'Mark Silver',
+    date: ''
   },
   {
     id: 19,
@@ -189,7 +207,8 @@ export const CLAIM_MOCK_DATA: Claim[] = [
     claimAmount: 800.0,
     status: 'Pending',
     claimType: 'Auto',
-    customerName: 'Emily Bronze'
+    customerName: 'Emily Bronze',
+    date: ''
   },
   {
     id: 20,
@@ -199,7 +218,8 @@ export const CLAIM_MOCK_DATA: Claim[] = [
     claimAmount: 900.0,
     status: 'Approved',
     claimType: 'Property',
-    customerName: 'Daniel Green'
+    customerName: 'Daniel Green',
+    date: ''
   },
   {
     id: 21,
@@ -209,7 +229,8 @@ export const CLAIM_MOCK_DATA: Claim[] = [
     claimAmount: 1200.0,
     status: 'Pending',
     claimType: 'Property',
-    customerName: 'Angela Blue'
+    customerName: 'Angela Blue',
+    date: ''
   },
   {
     id: 22,
@@ -219,7 +240,8 @@ export const CLAIM_MOCK_DATA: Claim[] = [
     claimAmount: 500.0,
     status: 'Approved',
     claimType: 'Auto',
-    customerName: 'Ryan Black'
+    customerName: 'Ryan Black',
+    date: ''
   },
   {
     id: 23,
@@ -229,7 +251,8 @@ export const CLAIM_MOCK_DATA: Claim[] = [
     claimAmount: 800.0,
     status: 'Denied',
     claimType: 'Property',
-    customerName: 'Sharon Pink'
+    customerName: 'Sharon Pink',
+    date: ''
   },
   {
     id: 24,
@@ -239,7 +262,8 @@ export const CLAIM_MOCK_DATA: Claim[] = [
     claimAmount: 700.0,
     status: 'Pending',
     claimType: 'Auto',
-    customerName: 'Gregory White'
+    customerName: 'Gregory White',
+    date: ''
   },
   {
     id: 25,
@@ -249,7 +273,8 @@ export const CLAIM_MOCK_DATA: Claim[] = [
     claimAmount: 900.0,
     status: 'Approved',
     claimType: 'Property',
-    customerName: 'Jennifer Brown'
+    customerName: 'Jennifer Brown',
+    date: ''
   },
   {
     id: 26,
@@ -259,7 +284,8 @@ export const CLAIM_MOCK_DATA: Claim[] = [
     claimAmount: 1100.0,
     status: 'Pending',
     claimType: 'Property',
-    customerName: 'Steven Green'
+    customerName: 'Steven Green',
+    date: ''
   },
   {
     id: 27,
@@ -269,7 +295,8 @@ export const CLAIM_MOCK_DATA: Claim[] = [
     claimAmount: 600.0,
     status: 'Approved',
     claimType: 'Auto',
-    customerName: 'Patricia Black'
+    customerName: 'Patricia Black',
+    date: ''
   },
   {
     id: 28,
@@ -279,7 +306,8 @@ export const CLAIM_MOCK_DATA: Claim[] = [
     claimAmount: 700.0,
     status: 'Denied',
     claimType: 'Property',
-     customerName: 'Gregory White',
+    customerName: 'Gregory White',
+    date: ''
   },
   {
     id: 29,
@@ -289,7 +317,8 @@ export const CLAIM_MOCK_DATA: Claim[] = [
     claimAmount: 800.0,
     status: 'Pending',
     claimType: 'Auto',
-    customerName: 'Peter Crouch'
+    customerName: 'Peter Crouch',
+    date: ''
   },
   {
     id: 30,
@@ -299,6 +328,7 @@ export const CLAIM_MOCK_DATA: Claim[] = [
     claimAmount: 900.0,
     status: 'Approved',
     claimType: 'Property',
-     customerName: 'Gregory White',
+    customerName: 'Gregory White',
+    date: ''
   },
 ];

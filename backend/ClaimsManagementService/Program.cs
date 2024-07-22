@@ -22,6 +22,13 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UsePathBase("/claims-mgmt"); // Set the path base here
+
+app.UseRouting();
+
 app.UseAuthorization();
+
 app.MapControllers();
+
 app.Run();
